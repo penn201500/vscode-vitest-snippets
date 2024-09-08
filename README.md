@@ -12,6 +12,34 @@ The quick and easy way to create and use Vitest with [VS Code](https://code.visu
 
 > We also **recommend** installing his complement extension [Testing Library Snippets](https://marketplace.visualstudio.com/items?itemName=deinsoftware.testing-library-snippets)
 
+## Custom Language Modes Setup
+
+This extension includes custom language modes for Vitest snippets that are scoped to test files (`.test.js`, `.test.tsx`, `.test.vue`, etc.).
+
+### Steps to Setup
+
+1. **Register Custom Language Modes**:
+   The following language modes are registered to be used with test files:
+
+   - `vitest-js`: For JavaScript test files (`*.test.js`)
+   - `vitest-jsx`: For JSX test files (`*.test.jsx`)
+   - `vitest-ts`: For TypeScript test files (`*.test.ts`)
+   - `vitest-tsx`: For TSX test files (`*.test.tsx`)
+   - `vitest-vue`: For Vue test files (`*.test.vue`)
+
+2. **File Associations**:
+   The extension is designed to work with the following file associations in your VS Code settings (`settings.json`):
+
+   ```json
+   "files.associations": {
+     "*.test.js": "vitest-js",
+     "*.test.jsx": "vitest-jsx",
+     "*.test.ts": "vitest-ts",
+     "*.test.tsx": "vitest-tsx",
+     "*.test.vue": "vitest-vue"
+   }
+   ```
+
 ## Menu
 
 - [Installation](#installation)
@@ -80,135 +108,135 @@ Below is a list of all available snippets and the triggers of each one. The `░
 
 ### Import
 
-|  Trigger | Result                                                                       |
-| -------: | ---------------------------------------------------------------------------- |
-|    `iv→` | `import { it, expect, describe } from 'vitest'█`                             |
-|   `ive→` | `import { beforeEach, afterEach, it, expect, describe, vi } from 'vitest'█`  |
+| Trigger | Result                                                                      |
+| ------: | --------------------------------------------------------------------------- |
+|   `iv→` | `import { it, expect, describe } from 'vitest'█`                            |
+|  `ive→` | `import { beforeEach, afterEach, it, expect, describe, vi } from 'vitest'█` |
 
 ### Setup
 
-|  Trigger | Result                                                          |
-| -------: | --------------------------------------------------------------- |
-|    `ba→` | <code>beforeAll(() => {<br/>&nbsp;&nbsp;█<br/>})</code>         |
-|   `baa→` | <code>beforeAll(async () => {<br/>&nbsp;&nbsp;█<br/>})</code>   |
-|    `be→` | <code>beforeEach(() => {<br/>&nbsp;&nbsp;█<br/>})</code>        |
-|   `bea→` | <code>beforeEach(async () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
-|    `ae→` | <code>afterEach(() => {<br/>&nbsp;&nbsp;█<br/>})</code>         |
-|    `aa→` | <code>afterAll(() => {<br/>&nbsp;&nbsp;█<br/>})</code>          |
+| Trigger | Result                                                         |
+| ------: | -------------------------------------------------------------- |
+|   `ba→` | <code>beforeAll(() => {<br/>&nbsp;&nbsp;█<br/>})</code>        |
+|  `baa→` | <code>beforeAll(async () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+|   `be→` | <code>beforeEach(() => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
+|  `bea→` | <code>beforeEach(async () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
+|   `ae→` | <code>afterEach(() => {<br/>&nbsp;&nbsp;█<br/>})</code>        |
+|   `aa→` | <code>afterAll(() => {<br/>&nbsp;&nbsp;█<br/>})</code>         |
 
 ### Describe
 
-|  Trigger | Result                                                                 |
-| -------: | ---------------------------------------------------------------------- |
-|     `d→` | <code>describe('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
-|  `desc→` | <code>describe('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
-|    `do→` | <code>describe.only('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
-|    `ds→` | <code>describe.skip('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+| Trigger | Result                                                                |
+| ------: | --------------------------------------------------------------------- |
+|    `d→` | <code>describe('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>      |
+| `desc→` | <code>describe('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code>      |
+|   `do→` | <code>describe.only('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
+|   `ds→` | <code>describe.skip('░group', () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
 
 ### Mock
 
-|  Trigger | Result                                                                                                        |
-| -------: | ------------------------------------------------------------------------------------------------------------- |
-| `aevcr→` | <code>afterEach(() => {<br/>&nbsp;&nbsp;vi.clearAllMocks()<br/>&nbsp;&nbsp;vi.resetAllMocks()<br/>})█</code>  |
-|    `vm→` | `vi.mock('░path')█`                                                                                                    |
-|  `vmrv→` | `vi.mock('░path').mockResolvedValue(█)`                                                                                |
-|    `vf→` | `vi.fn()█`                                                                                                    |
-|  `vfrv→` | `vi.fn().mockResolvedValue(█)`                                                                                |
-|    `cf→` | `const ░nameMock = vi.fn()█`                                                                                  |
-|  `cfrv→` | `const ░nameMock = vi.fn().mockResolvedValue(█)`                                                              |
-|   `mrv→` | `░mock.mockReturnValue(█)`                                                                                    |
-|  `mrvo→` | `░mock.mockReturnValueOnce(█)`                                                                                |
-|    `vs→` | `vi.spyOn(░global, '░method')█`                                                                               |
-|   `vsi→` | `vi.spyOn(░global, '░method').mockImplementation(() => █)`                                                    |
-|    `cs→` | `const ░methodSpy = vi.spyOn(░global, '░method')█`                                                            |
-|   `csi→` | `const ░methodSpy = vi.spyOn(░global, '░method').mockImplementation(() => █)`                                 |
+|  Trigger | Result                                                                                                       |
+| -------: | ------------------------------------------------------------------------------------------------------------ |
+| `aevcr→` | <code>afterEach(() => {<br/>&nbsp;&nbsp;vi.clearAllMocks()<br/>&nbsp;&nbsp;vi.resetAllMocks()<br/>})█</code> |
+|    `vm→` | `vi.mock('░path')█`                                                                                          |
+|  `vmrv→` | `vi.mock('░path').mockResolvedValue(█)`                                                                      |
+|    `vf→` | `vi.fn()█`                                                                                                   |
+|  `vfrv→` | `vi.fn().mockResolvedValue(█)`                                                                               |
+|    `cf→` | `const ░nameMock = vi.fn()█`                                                                                 |
+|  `cfrv→` | `const ░nameMock = vi.fn().mockResolvedValue(█)`                                                             |
+|   `mrv→` | `░mock.mockReturnValue(█)`                                                                                   |
+|  `mrvo→` | `░mock.mockReturnValueOnce(█)`                                                                               |
+|    `vs→` | `vi.spyOn(░global, '░method')█`                                                                              |
+|   `vsi→` | `vi.spyOn(░global, '░method').mockImplementation(() => █)`                                                   |
+|    `cs→` | `const ░methodSpy = vi.spyOn(░global, '░method')█`                                                           |
+|   `csi→` | `const ░methodSpy = vi.spyOn(░global, '░method').mockImplementation(() => █)`                                |
 
 ### It
 
-|  Trigger | Result                                                             |
-| -------: | ------------------------------------------------------------------ |
-|     `i→` | <code>it('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>        |
-|    `it→` | <code>it('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>        |
-|    `io→` | <code>it.only('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>   |
-|    `is→` | <code>it.skip('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>   |
-|   `itd→` | `it.todo('░should')█`                                              |
-|    `ia→` | <code>it('░should', async () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+| Trigger | Result                                                            |
+| ------: | ----------------------------------------------------------------- |
+|    `i→` | <code>it('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
+|   `it→` | <code>it('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
+|   `io→` | <code>it.only('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+|   `is→` | <code>it.skip('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+|  `itd→` | `it.todo('░should')█`                                             |
+|   `ia→` | <code>it('░should', async () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
 
 ### Test
 
-|  Trigger | Result                                                              |
-| -------: | ------------------------------------------------------------------- |
-|     `t→` | <code>test('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
-|    `to→` | <code>test.only('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
-|    `ts→` | <code>test.skip('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
-|   `ttd→` | `test.todo('░should')█`                                             |
-|    `ta→` | <code>test('░should', async () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
+| Trigger | Result                                                              |
+| ------: | ------------------------------------------------------------------- |
+|    `t→` | <code>test('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>       |
+|   `to→` | <code>test.only('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+|   `ts→` | <code>test.skip('░should', () => {<br/>&nbsp;&nbsp;█<br/>})</code>  |
+|  `ttd→` | `test.todo('░should')█`                                             |
+|   `ta→` | <code>test('░should', async () => {<br/>&nbsp;&nbsp;█<br/>})</code> |
 
 ### Expect
 
-|  Trigger | Result                     |
-| -------: | -------------------------- |
-|     `e→` | `expect(█)`                |
-|    `ea→` | `expect.assertions(█)`     |
-|   `eha→` | `expect.hasAssertions()█`  |
-|   `erj→` | `expect(░).rejects█`       |
-|   `ers→` | `expect(░).resolves█`      |
+| Trigger | Result                    |
+| ------: | ------------------------- |
+|    `e→` | `expect(█)`               |
+|   `ea→` | `expect.assertions(█)`    |
+|  `eha→` | `expect.hasAssertions()█` |
+|  `erj→` | `expect(░).rejects█`      |
+|  `ers→` | `expect(░).resolves█`     |
 
 ### Any
 
-|  Trigger | Result                   |
-| -------: | ------------------------ |
-|   `eav→` | `expect.any(░)█`         |
-|   `eas→` | `expect.any(String)█`    |
-|   `ean→` | `expect.any(Number)█`    |
-|   `eab→` | `expect.any(Boolean)█`   |
-|   `ead→` | `expect.any(Date)█`      |
-|   `eaf→` | `expect.any(Function)█`  |
-|   `eaa→` | `expect.any(Array)█`     |
-|   `eat→` | `expect.anything()█`     |
+| Trigger | Result                  |
+| ------: | ----------------------- |
+|  `eav→` | `expect.any(░)█`        |
+|  `eas→` | `expect.any(String)█`   |
+|  `ean→` | `expect.any(Number)█`   |
+|  `eab→` | `expect.any(Boolean)█`  |
+|  `ead→` | `expect.any(Date)█`     |
+|  `eaf→` | `expect.any(Function)█` |
+|  `eaa→` | `expect.any(Array)█`    |
+|  `eat→` | `expect.anything()█`    |
 
 ### Assertion
 
-|   Trigger | Result                                                                                      |
-| --------: | ------------------------------------------------------------------------------------------- |
-|     `tb→` | `expect(░).toBe(░)█`                                                                        |
-|   `tbct→` | `expect(░).toBeCloseTo(░number, ░delta)█`                                                   |
-|    `tbd→` | `expect(░).toBeDefined()█`                                                                  |
-|    `tbf→` | `expect(░).toBeFalsy()█`                                                                    |
-|   `tbgt→` | `expect(░).toBeGreaterThan(░)█`                                                             |
-|  `tbgte→` | `expect(░).toBeGreaterThanOrEqual(░)█`                                                      |
-|   `tbid→` | `expect(░).toBeInTheDocument()█`                                                            |
-|    `tbi→` | `expect(░).toBeInstanceOf(░)█`                                                              |
-|   `tblt→` | `expect(░).toBeLessThan(░)█`                                                                |
-|  `tblte→` | `expect(░).toBeLessThanOrEqual(░)█`                                                         |
-|    `tbn→` | `expect(░).toBeNull()█`                                                                     |
-|    `tbt→` | `expect(░).toBeTruthy()█`                                                                   |
-|    `tbu→` | `expect(░).toBeUndefined()█`                                                                |
-|     `tc→` | `expect(░list).toContain(░)█`                                                               |
-|    `tce→` | `expect(░list).toContainEqual(░)█`                                                          |
-|     `te→` | `expect(░).toEqual(░)█`                                                                     |
-|   `thbc→` | `expect(░).toHaveBeenCalled()█`                                                             |
-|  `thbct→` | `expect(░).toHaveBeenCalledTimes(░)█`                                                       |
-|  `thbcw→` | `expect(░).toHaveBeenCalledWith(░)█`                                                        |
-| `thblcw→` | `expect(░).toHaveBeenLastCalledWith(░)█`                                                    |
-|    `thl→` | `expect(░).toHaveLength(░)█`                                                                |
-|    `thp→` | `expect(░).toHaveProperty(░keyPath, ░value)█`                                               |
-|   `thpd→` | `expect(░).toHaveProperty('disabled')█`                                                     |
-|   `thps→` | `expect(░).toHaveProperty('selected')█`                                                     |
-|     `tm→` | `expect(░).toMatch(░)█`                                                                     |
-|   `tmis→` | `expect(░).toMatchInlineSnapshot(░)█`                                                       |
-|    `tmo→` | `expect(░).toMatchObject(░)█`                                                               |
-|    `tse→` | `expect(░).toStrictEqual(░)█`                                                               |
-|     `tt→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrow(░)</code>                             |
-|    `tte→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowError(░)</code>                        |
-| `ttemis→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowErrorMatchingInlineSnapshot()</code>   |
-|  `ttems→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowErrorMatchingSnapshot()</code>         |
+|   Trigger | Result                                                                                    |
+| --------: | ----------------------------------------------------------------------------------------- |
+|     `tb→` | `expect(░).toBe(░)█`                                                                      |
+|   `tbct→` | `expect(░).toBeCloseTo(░number, ░delta)█`                                                 |
+|    `tbd→` | `expect(░).toBeDefined()█`                                                                |
+|    `tbf→` | `expect(░).toBeFalsy()█`                                                                  |
+|   `tbgt→` | `expect(░).toBeGreaterThan(░)█`                                                           |
+|  `tbgte→` | `expect(░).toBeGreaterThanOrEqual(░)█`                                                    |
+|   `tbid→` | `expect(░).toBeInTheDocument()█`                                                          |
+|    `tbi→` | `expect(░).toBeInstanceOf(░)█`                                                            |
+|   `tblt→` | `expect(░).toBeLessThan(░)█`                                                              |
+|  `tblte→` | `expect(░).toBeLessThanOrEqual(░)█`                                                       |
+|    `tbn→` | `expect(░).toBeNull()█`                                                                   |
+|    `tbt→` | `expect(░).toBeTruthy()█`                                                                 |
+|    `tbu→` | `expect(░).toBeUndefined()█`                                                              |
+|     `tc→` | `expect(░list).toContain(░)█`                                                             |
+|    `tce→` | `expect(░list).toContainEqual(░)█`                                                        |
+|     `te→` | `expect(░).toEqual(░)█`                                                                   |
+|   `thbc→` | `expect(░).toHaveBeenCalled()█`                                                           |
+|  `thbct→` | `expect(░).toHaveBeenCalledTimes(░)█`                                                     |
+|  `thbcw→` | `expect(░).toHaveBeenCalledWith(░)█`                                                      |
+| `thblcw→` | `expect(░).toHaveBeenLastCalledWith(░)█`                                                  |
+|    `thl→` | `expect(░).toHaveLength(░)█`                                                              |
+|    `thp→` | `expect(░).toHaveProperty(░keyPath, ░value)█`                                             |
+|   `thpd→` | `expect(░).toHaveProperty('disabled')█`                                                   |
+|   `thps→` | `expect(░).toHaveProperty('selected')█`                                                   |
+|     `tm→` | `expect(░).toMatch(░)█`                                                                   |
+|   `tmis→` | `expect(░).toMatchInlineSnapshot(░)█`                                                     |
+|    `tmo→` | `expect(░).toMatchObject(░)█`                                                             |
+|    `tse→` | `expect(░).toStrictEqual(░)█`                                                             |
+|     `tt→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrow(░)</code>                           |
+|    `tte→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowError(░)</code>                      |
+| `ttemis→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowErrorMatchingInlineSnapshot()</code> |
+|  `ttems→` | <code>expect(() => {<br/>&nbsp;&nbsp;█<br/>}).toThrowErrorMatchingSnapshot()</code>       |
 
 ### Skeleton
 
-|   Trigger | Result                                                                                      |
-| --------: | ------------------------------------------------------------------------------------------- |
-|    `vsb→` | <code>import { it, expect, describe } from 'vitest'<br/><br/>describe('░group', () => {<br/>&nbsp;&nbsp;it('░should', () => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;const expected = '░expected'<br/>&nbsp;&nbsp;&nbsp;&nbsp;const actual = ░group(░argument)<br/>&nbsp;&nbsp;&nbsp;&nbsp;expect(actual).toBe(expected)█<br/>&nbsp;&nbsp;})<br />})</code> |
+| Trigger | Result                                                                                                                                                                                                                                                                                                                                           |
+| ------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|  `vsb→` | <code>import { it, expect, describe } from 'vitest'<br/><br/>describe('░group', () => {<br/>&nbsp;&nbsp;it('░should', () => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;const expected = '░expected'<br/>&nbsp;&nbsp;&nbsp;&nbsp;const actual = ░group(░argument)<br/>&nbsp;&nbsp;&nbsp;&nbsp;expect(actual).toBe(expected)█<br/>&nbsp;&nbsp;})<br />})</code> |
 
 ⇧ [Back to menu](#menu)
 
@@ -218,10 +246,10 @@ Below is a list of all available snippets and the triggers of each one. The `░
 
 Remember to complement the snippets with these keyboard shortcuts that can be used without needing to move the cursor to the start or to the end.
 
-| Action            | Win/Linux          | macOS             |
+| Action            |          Win/Linux |             macOS |
 | ----------------- | -----------------: | ----------------: |
 | Insert line above | `ctrl+shift+enter` | `cmd+shift+enter` |
-| Insert line below | `ctrl+enter`       | `cmd+enter`       |
+| Insert line below |       `ctrl+enter` |       `cmd+enter` |
 
 ⇧ [Back to menu](#menu)
 
