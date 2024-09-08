@@ -1,9 +1,9 @@
 {
-  "name": "vitest-snippets",
-  "description": "VS Code Vitest snippets for JS and TS",
-  "version": "1.8.0",
-  "displayName": "Vitest Snippets",
-  "publisher": "deinsoftware",
+  "name": "vitest-snippets-custom",
+  "description": "VS Code Vitest snippets for test files (.test.js, .test.jsx, .test.ts, .test.tsx)",
+  "version": "1.0.0",
+  "displayName": "Custom Vitest Snippets",
+  "publisher": "penn",
   "icon": "images/light-icon.png",
   "keywords": [
     "vitest",
@@ -20,10 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/deinsoftware/vscode-vitest-snippets"
-  },
-  "sponsor": {
-    "url": "https://github.com/sponsors/deinsoftware"
+    "url": "https://github.com/penn201500/vscode-vitest-snippets"
   },
   "engines": {
     "vscode": "^1.8.0"
@@ -41,185 +38,217 @@
     "onCommand:extension.snippetSearch"
   ],
   "contributes": {
+    "languages": [
+      {
+        "id": "vitest-js",
+        "aliases": ["Vitest JavaScript", "vitest-js"],
+        "extensions": [".test.js"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "vitest-jsx",
+        "aliases": ["Vitest JSX", "vitest-jsx"],
+        "extensions": [".test.jsx"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "vitest-ts",
+        "aliases": ["Vitest TypeScript", "vitest-ts"],
+        "extensions": [".test.ts"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "vitest-tsx",
+        "aliases": ["Vitest TSX", "vitest-tsx"],
+        "extensions": [".test.tsx"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "vitest-vue",
+        "aliases": ["Vitest Vue", "vitest-vue"],
+        "extensions": [".test.vue"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
     "snippets": [
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/import.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/setup.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/describe.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/mock.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/it.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/test.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/expect.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./snippets/assertion.json"
       },
       {
-        "language": "javascript",
+        "language": "vitest-js",
         "path": "./templates/skeleton.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/import.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/setup.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/describe.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/mock.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/it.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/test.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/expect.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./snippets/assertion.json"
       },
       {
-        "language": "javascriptreact",
+        "language": "vitest-jsx",
         "path": "./templates/skeleton.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/import.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/setup.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/describe.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/mock.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/it.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/test.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/expect.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./snippets/assertion.json"
       },
       {
-        "language": "vue",
+        "language": "vitest-ts",
         "path": "./templates/skeleton.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/import.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/setup.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/describe.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/mock.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/it.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/test.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/expect.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./snippets/assertion.json"
       },
       {
-        "language": "typescript",
+        "language": "vitest-tsx",
         "path": "./templates/skeleton.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/import.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/setup.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/describe.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/mock.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/it.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/test.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/expect.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./snippets/assertion.json"
       },
       {
-        "language": "typescriptreact",
+        "language": "vitest-vue",
         "path": "./templates/skeleton.json"
       }
     ]
